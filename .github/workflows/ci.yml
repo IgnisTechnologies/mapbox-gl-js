@@ -24,12 +24,8 @@ jobs:
       shell: bash
       working-directory: ${{ runner.temp }}
       run: |
-        set -euo pipefail
-        elevate=()
-        if [ "$(id -u)" -ne 0 ]; then elevate=(sudo); fi
-        "${elevate[@]}" sed -i '/^mozilla\/emSign_ECC_Root_CA_-_G3.crt$/d; /^mozilla\/Comodo_AAA_Services_root.crt$/d' /etc/ca-certificates.conf
-        "${elevate[@]}" rm -f /usr/share/ca-certificates/mozilla/emSign_ECC_Root_CA_-_G3.crt /usr/share/ca-certificates/mozilla/Comodo_AAA_Services_root.crt
-        "${elevate[@]}" update-ca-certificates --fresh
+        sudo apt-get update --error-on=any
+        sudo apt-get install -y --only-upgrade ca-certificates
     - uses: actions/checkout@v7
     - uses: actions/setup-node@v6
       with:
@@ -55,12 +51,8 @@ jobs:
       shell: bash
       working-directory: ${{ runner.temp }}
       run: |
-        set -euo pipefail
-        elevate=()
-        if [ "$(id -u)" -ne 0 ]; then elevate=(sudo); fi
-        "${elevate[@]}" sed -i '/^mozilla\/emSign_ECC_Root_CA_-_G3.crt$/d; /^mozilla\/Comodo_AAA_Services_root.crt$/d' /etc/ca-certificates.conf
-        "${elevate[@]}" rm -f /usr/share/ca-certificates/mozilla/emSign_ECC_Root_CA_-_G3.crt /usr/share/ca-certificates/mozilla/Comodo_AAA_Services_root.crt
-        "${elevate[@]}" update-ca-certificates --fresh
+        sudo apt-get update --error-on=any
+        sudo apt-get install -y --only-upgrade ca-certificates
     - uses: actions/checkout@v7
     - uses: actions/setup-node@v6
       with:
@@ -94,12 +86,8 @@ jobs:
       shell: bash
       working-directory: ${{ runner.temp }}
       run: |
-        set -euo pipefail
-        elevate=()
-        if [ "$(id -u)" -ne 0 ]; then elevate=(sudo); fi
-        "${elevate[@]}" sed -i '/^mozilla\/emSign_ECC_Root_CA_-_G3.crt$/d; /^mozilla\/Comodo_AAA_Services_root.crt$/d' /etc/ca-certificates.conf
-        "${elevate[@]}" rm -f /usr/share/ca-certificates/mozilla/emSign_ECC_Root_CA_-_G3.crt /usr/share/ca-certificates/mozilla/Comodo_AAA_Services_root.crt
-        "${elevate[@]}" update-ca-certificates --fresh
+        sudo apt-get update --error-on=any
+        sudo apt-get install -y --only-upgrade ca-certificates
     - uses: actions/checkout@v7
     - uses: actions/setup-node@v6
       with:
@@ -125,12 +113,8 @@ jobs:
       shell: bash
       working-directory: ${{ runner.temp }}
       run: |
-        set -euo pipefail
-        elevate=()
-        if [ "$(id -u)" -ne 0 ]; then elevate=(sudo); fi
-        "${elevate[@]}" sed -i '/^mozilla\/emSign_ECC_Root_CA_-_G3.crt$/d; /^mozilla\/Comodo_AAA_Services_root.crt$/d' /etc/ca-certificates.conf
-        "${elevate[@]}" rm -f /usr/share/ca-certificates/mozilla/emSign_ECC_Root_CA_-_G3.crt /usr/share/ca-certificates/mozilla/Comodo_AAA_Services_root.crt
-        "${elevate[@]}" update-ca-certificates --fresh
+        sudo apt-get update --error-on=any
+        sudo apt-get install -y --only-upgrade ca-certificates
     - id: report
       run: |
         status_emoji() {
